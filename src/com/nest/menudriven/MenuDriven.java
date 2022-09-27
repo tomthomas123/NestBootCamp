@@ -1,8 +1,7 @@
 package com.nest.menudriven;
 
 import java.util.Scanner;
-
-public class MenuDriven {
+class MenuDriven{
     public static void main(String args[]) {
         int choice;
         while (true) {
