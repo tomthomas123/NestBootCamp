@@ -1,18 +1,16 @@
 package com.nest.newhotel;
 
 public class Fooditems {
-    int tea;
-    int coffee;
 
-    public Fooditems(int tea, int coffee, int dosa, int idle) {
+
+    int tea,coffee, idli , dosa;
+
+    public Fooditems(int tea, int coffee, int idli, int dosa) {
         this.tea = tea;
         this.coffee = coffee;
+        this.idli = idli;
         this.dosa = dosa;
-        this.idle = idle;
     }
-
-    int dosa;
-    int idle;
 
     public int getTea() {
         return tea;
@@ -30,19 +28,19 @@ public class Fooditems {
         this.coffee = coffee;
     }
 
+    public int getIdli() {
+        return idli;
+    }
+
+    public void setIdli(int idli) {
+        this.idli = idli;
+    }
+
     public int getDosa() {
         return dosa;
     }
 
     public void setDosa(int dosa) {
         this.dosa = dosa;
-    }
-
-    public int getIdle() {
-        return idle;
-    }
-
-    public void setIdle(int idle) {
-        this.idle = idle;
     }
 }

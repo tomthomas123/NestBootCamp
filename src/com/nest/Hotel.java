@@ -2,103 +2,201 @@ package com.nest;
 import com.nest.newhotel.Fooditems;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
+
+
 public class Hotel {
-    static int total=0;
-
+    static int total = 0;
     public static void main(String[] args) {
+        // static int total = 0;
+        Fooditems fooditems = new Fooditems(10, 12, 8, 15);
+        Fooditems TakeAway = new Fooditems(10, 12, 15, 14);
+        // ArrayList<String> buyed = new ArrayList<>();
+        ArrayList<String> items = new ArrayList<>();
+        ArrayList<Integer> pro = new ArrayList<>();
+        HashMap<String,String> map = new HashMap<String,String>();
+        ArrayList<String> transaction = new ArrayList<>();
+        int choice;
+        int choice1;
+        // int p; string.value.int
+        // int total = 0;
+        items.add("1: tea");
+        items.add("2: coffee");
+        items.add("3: idli");
+        items.add("4: dosa");
+        items.add("5: exit");
+        System.out.println("1 : dinning");
+        System.out.println("2 : takeaway");
+        System.out.println("3 : Billing");
 
-                int y;
-                int x;
-                Scanner s=new Scanner(System.in);
-        Fooditems foodItems=new Fooditems(10,23,12,20);
-        Fooditems takeaway=new Fooditems(10,25,15,25);
-                while (true) {
-                    System.out.println("enter the choice");
-                    System.out.println("1.Tea "+"price-> "+ foodItems.getTea());
-                    System.out.println("2.coffe "+ foodItems.getCoffee());
-                    System.out.println("3. dosa "+ foodItems.getDosa());
-                    System.out.println("4. idle "+ foodItems.getIdle());
-//                    System.out.println("5.ice cream 35$");
-//                    System.out.println("6.BILL");
-//                    System.out.println("7.exit");
+        System.out.println(items);
 
-                    System.out.println("1. Dining");
-                    System.out.println("2. Takeaway");
-                    y=s.nextInt();
-                    x=s.nextInt();
+        while(true)
+        {
+            Scanner obj = new Scanner(System.in);
+            System.out.println("enter the option ");
+            choice = obj.nextInt();
+            // choice1 = obj.nextInt();
+            Scanner name = new Scanner(System.in);
+            // System.out.println("enter the name of customer");
+            // String names = name.next();
+            // map.put("CustomerName:" , names);
 
+            Random rand = new Random();
 
-                     switch (y) {
+            // int customerNumber = rand.nextInt(10000,100000);
+            // map.put("CustomerNumber:",String.valueOf(customerNumber));
+
+            // map.put("amount","123");
+            // map.put("mode","Dine in");
+            // transaction.add(map)
+            switch (choice) {
+                case 1:
+                    System.out.println("Dinning");
+                    System.out.println("enter the name of customer");
+                    String names = name.next();
+                    map.put("CustomerName:", names);
+                    int customerNumber = rand.nextInt(10000, 100000);
+                    map.put("CustomerNumber:", String.valueOf(customerNumber));
+                    System.out.println("enter the items you need");
+                    choice1 = obj.nextInt();
+                    switch (choice1) {
                         case 1:
-                            System.out.println(" Selected Dining");
-                            switch (x)
-                            {
-                                case 1:
-                                    System.out.println("how many quantity");
-                                    int m = foodItems.getTea();
-                                    total = (10 * m) + total;
-                                    System.out.println(total);
-                                    break;
-                                case 2:
-                                    System.out.println("how many quantity");
-                                    int n = foodItems.getCoffee();
-                                    total = (30 * n) + total;
-                                    System.out.println(total);
-
-                                    break;
-                                case 3:
-                                    System.out.println("how many quantity");
-                                    int o = foodItems.getDosa();
-                                    total = (12 * o) + total;
-                                    System.out.println(total);
-                                    break;
-                                case 4:
-                                    System.out.println("how many quantity");
-                                    int l = foodItems.getIdle();
-                                    total = (15 * l) + total;
-                                    System.out.println(total);
-                                    break;
-
-                            }
-
-
+                            // Scanner pur = new Scanner(System.in);
+                            System.out.println("enter the quantity");
+                            int buy = obj.nextInt();
+                            int p = buy * fooditems.getTea();
+                            // System.out.println(p);
+                            // total = total + p;
+                            pro.add(p);
+                            // buyed.add("tea");
+                            map.put("Total:", String.valueOf(p));
+                            transaction.add(String.valueOf(map));
+                            // System.out.println("item purchased" + buyed);
+                            // System.out.println("item total price" + pro);
+                            break;
                         case 2:
-                            System.out.println("Selected Takeaway");
-                            switch(x) {
-                                case 1:
-                                    System.out.println("how many quantity");
-                                    int m = takeaway.getTea();// s.nextInt();
-                                    total = (10 * m) + total;
-                                    System.out.println(total);
-                                    break;
-                                case 2:
-                                    System.out.println("how many quantity");
-                                    int n = takeaway.getCoffee();//s.nextInt();
-                                    total = (30 * n) + total;
-                                    System.out.println(total);
-                                    break;
-                                case 3:
-                                    System.out.println("how many quantity");
-                                    int o = takeaway.getDosa();//s.nextInt();
-                                    total = (12 * o) + total;
-                                    System.out.println(total);
-                                    break;
-                                case 4:
-                                    System.out.println("how many quantity");
-                                    int l = takeaway.getIdle();//s.nextInt();
-                                    total = (15 * l) + total;
-                                    System.out.println(total);
-                                    break;
-                                default:
-                                    System.out.println("InValid");
-                            }
+                            System.out.println("enter the quantity");
 
+                            buy = obj.nextInt();
+                            p = buy * fooditems.getCoffee();
+                            // total = total + p;
+                            pro.add(p);
+                            // buyed.add("coffee");
+                            map.put("Total:", String.valueOf(p));
+                            transaction.add(String.valueOf(map));
+                            // System.out.println("item purchased" + buyed);
+                            // System.out.println("item total price" + pro);
+                            break;
+                        case 3:
+                            System.out.println("enter the quantity");
 
+                            buy = obj.nextInt();
+                            p = buy * fooditems.getDosa();
+                            // total = total + p;
+                            pro.add(p);
+                            // buyed.add("dosa");
+                            map.put("Total:", String.valueOf(p));
+                            transaction.add(String.valueOf(map));
+                            // transaction.add(String.)
+                            // System.out.println("item purchased" + buyed);
+                            // System.out.println("item total price" + pro);
+                            break;
+                        case 4:
+                            System.out.println("enter the quantity");
+                            buy = obj.nextInt();
+                            p = buy * fooditems.getIdli();
+                            // total = total + p;
+                            pro.add(p);
+                            // buyed.add("idli");
+                            map.put("Total:", String.valueOf(p));
+                            transaction.add(String.valueOf(map));
+                            // System.out.println("item purchased" + buyed);
+                            // System.out.println("item total price" + pro);
+                            break;
                     }
-                }
+                    break;
+
+
+
+                case 2:
+                    System.out.println("Takeaway");
+                    System.out.println("enter the name of customer");
+                    names = name.next();
+                    map.put("CustomerName:", names);
+                    customerNumber = rand.nextInt(10000, 100000);
+                    map.put("CustomerNumber:", String.valueOf(customerNumber));
+                    System.out.println("enter the items you need");
+                    choice1 = obj.nextInt();
+                    switch (choice1) {
+                        case 1:
+                            System.out.println("enter the quantity");
+                            // Scanner pur = new Scanner(System.in);
+                            int buy = obj.nextInt();
+
+                            int p = buy * TakeAway.getTea();
+                            // total = total + p;
+                            pro.add(p);
+                            // buyed.add("tea");
+                            map.put("Total:",String.valueOf(p));
+                            transaction.add(String.valueOf(map));
+                            //System.out.println("item purchased" + buyed);
+                            // System.out.println("item total price" + pro);
+                            break;
+                        case 2:
+                            System.out.println("enter the quantity");
+
+                            buy = obj.nextInt();
+                            p = buy * TakeAway.getCoffee();
+                            // total = total + p;
+                            pro.add(p);
+                            // buyed.add("coffee");
+                            map.put("Total:",String.valueOf(p));
+                            transaction.add(String.valueOf(map));
+                            // System.out.println("item purchased" + buyed);
+                            // System.out.println("item total price" + pro);
+                            break;
+                        case 3:
+                            System.out.println("enter the quantity");
+
+                            buy = obj.nextInt();
+                            p = buy * TakeAway.getDosa();
+                            // total = total + p;
+                            pro.add(p);
+                            // buyed.add("dosa");
+                            map.put("Total:",String.valueOf(p));
+                            transaction.add(String.valueOf(map));
+                            // System.out.println("item purchased" + buyed);
+                            // System.out.println("item total price" + pro);
+                            break;
+                        case 4:
+                            System.out.println("enter the quantity");
+                            // Scanner pur = new Scanner(System.in);
+                            buy = obj.nextInt();
+                            p = buy * TakeAway.getIdli();
+                            // total = total + p;
+                            pro.add(p);
+                            // buyed.add("idle");
+                            map.put("Total:",String.valueOf(p));
+                            transaction.add(String.valueOf(map));
+                            // System.out.println("item purchased" + buyed);
+                            // System.out.println("item total price" + pro);
+                            break;
+                    }
+                    break;
+
+
+                case 3:
+                    // transaction.add(map);
+
+                    System.out.println(transaction);
+                    System.exit(0);
 
             }
         }
+    }
+}
 
 
